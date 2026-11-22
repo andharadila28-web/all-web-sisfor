@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andhara's Digital Space | Andhara Dila Manggala Putri</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
         * {
             box-sizing: border-box;
@@ -30,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Dekorasi Cahaya Warna-Warni Latar Belakang */
         .blob-1 {
             position: fixed;
             top: -90px;
@@ -71,12 +69,12 @@
             z-index: 1;
         }
 
-        /* --- FLOATING TOP NAVBAR --- */
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(16px);
             border: 2px solid #ffffff;
             border-radius: 50px;
@@ -153,9 +151,9 @@
             50% { opacity: 0.5; transform: scale(1.25); }
         }
 
-        /* --- HERO SECTION --- */
+        /* Hero Section */
         .hero-card {
-            background: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.84);
             border: 2px solid #ffffff;
             backdrop-filter: blur(20px);
             border-radius: 32px;
@@ -207,7 +205,6 @@
             font-weight: 700;
         }
 
-        /* Tag Minat & Fokus */
         .interest-tags {
             display: flex;
             flex-wrap: wrap;
@@ -223,13 +220,6 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             color: #334155;
-        }
-
-        /* Tombol Aksi Hero */
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
         }
 
         .btn-primary {
@@ -252,9 +242,8 @@
             box-shadow: 0 14px 25px -6px rgba(236, 72, 153, 0.55);
         }
 
-        /* Kartu Visual Kanan pada Hero */
+        /* Kartu Foto Kanan */
         .hero-visual {
-            position: relative;
             background: linear-gradient(145deg, #ffe4e6 0%, #fef3c7 52%, #e0f2fe 100%);
             border: 2px solid #ffffff;
             border-radius: 26px;
@@ -315,7 +304,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            background: rgba(255, 255, 255, 0.78);
+            background: rgba(255, 255, 255, 0.8);
             padding: 8px;
             border-radius: 14px;
             border: 1px solid #ffffff;
@@ -334,7 +323,7 @@
             color: #64748b;
         }
 
-        /* --- JUDUL SECTION PROYEK --- */
+        /* Section Header Karya */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -345,4 +334,264 @@
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .section-header p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .project-count {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1.5px solid #ffffff;
+            color: #db2777;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Grid 4 Kartu */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.88);
+            border: 2px solid #ffffff;
+            border-radius: 26px;
+            padding: 28px 26px;
+            text-decoration: none;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.06);
+        }
+
+        .card:hover {
+            transform: translateY(-7px) scale(1.01);
+            box-shadow: 0 22px 40px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 13px;
+            border-radius: 10px;
+        }
+
+        .arrow-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .arrow-btn {
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.48rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .card-body p {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        /* Warna Tiap Kartu */
+        .card-1 { background: linear-gradient(145deg, #ffffff 30%, #ffe4e6 100%); border-color: #fecdd3; }
+        .card-1 .card-tag, .card-1 .arrow-btn { background: #ffe4e6; color: #e11d48; }
+        .card-1:hover .arrow-btn { background: #f43f5e; color: #ffffff; }
+
+        .card-2 { background: linear-gradient(145deg, #ffffff 30%, #fef3c7 100%); border-color: #fde68a; }
+        .card-2 .card-tag, .card-2 .arrow-btn { background: #fef3c7; color: #d97706; }
+        .card-2:hover .arrow-btn { background: #f59e0b; color: #ffffff; }
+
+        .card-3 { background: linear-gradient(145deg, #ffffff 30%, #d1fae5 100%); border-color: #a7f3d0; }
+        .card-3 .card-tag, .card-3 .arrow-btn { background: #d1fae5; color: #059669; }
+        .card-3:hover .arrow-btn { background: #10b981; color: #ffffff; }
+
+        .card-4 { background: linear-gradient(145deg, #ffffff 30%, #e0f2fe 100%); border-color: #bae6fd; }
+        .card-4 .card-tag, .card-4 .arrow-btn { background: #e0f2fe; color: #0284c7; }
+        .card-4:hover .arrow-btn { background: #0ea5e9; color: #ffffff; }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .hero-card { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; }
+            .interest-tags { justify-content: center; }
+            .hero-title { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="#" class="nav-brand">
+                <span class="brand-logo">A</span>
+                <span>Andhara's Space</span>
+            </a>
+            <div class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#karya">Eksplorasi Karya</a>
+            </div>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                SIM Showcase
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="beranda" class="hero-card">
+            <div class="hero-content">
+                <div class="greeting-pill">
+                    <span>✨</span> Personal Creative Space & Portfolio
+                </div>
+                <h1 class="hero-title">Andhara Dila Manggala Putri</h1>
+                <p class="hero-bio">
+                    Halo, selamat datang di ruang digitalku! Tempat merangkum eksplorasi <strong>Sistem Informasi Manajemen</strong>, riset pengguna digital, dan pengembangan web kreatif dari sudut pandang mahasiswi <strong>Sosial Ekonomi Perikanan</strong>.
+                </p>
+
+                <div class="interest-tags">
+                    <span class="tag-chip">💻 Web Exploration</span>
+                    <span class="tag-chip">📊 Riset & Survei Digital</span>
+                    <span class="tag-chip">🌊 Sosial Ekonomi Perikanan</span>
+                </div>
+
+                <a href="#karya" class="btn-primary">Jelajahi Karya ↓</a>
+            </div>
+
+            <!-- Kartu Profil Kanan -->
+            <div class="hero-visual">
+                <div class="avatar-circle">
+                    <!-- Ganti foto.jpg sesuai nama file fotomu -->
+                    <img src="foto.jpg" alt="Foto Andhara Dila Manggala Putri" class="avatar-photo" onerror="this.src='https://ui-avatars.com/api/?name=Andhara+Dila&background=fce7f3&color=be185d&size=256'">
+                </div>
+                <div class="visual-role">Mahasiswi Sosial Ekonomi Perikanan</div>
+                <div class="visual-campus">Universitas Lambung Mangkurat</div>
+                <div class="visual-quote">"Merangkai ide, riset, dan visual menjadi karya web yang bermakna ✨"</div>
+                <div class="visual-stats">
+                    <div class="stat-box">
+                        <span>04</span>
+                        <small>Proyek Web</small>
+                    </div>
+                    <div class="stat-box">
+                        <span>ULM</span>
+                        <small>Banjarbaru</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Judul Bagian Karya -->
+        <div id="karya" class="section-header">
+            <div>
+                <h2>Eksplorasi Karya & Proyek</h2>
+                <p>Kumpulan halaman web, formulir survei digital, dan kolaborasi tim.</p>
+            </div>
+            <span class="project-count">4 Proyek Tersedia</span>
+        </div>
+
+        <!-- 4 Kartu Tugas -->
+        <main class="bento-grid">
+            <a href="tugas1.html" class="card card-1">
+                <div class="card-header">
+                    <span class="card-tag">01 • Personal Profile</span>
+                    <div class="arrow-btn">↗</div>
+                </div>
+                <div class="card-body">
+                    <h3>Biodata Diri</h3>
+                    <p>Profil pribadi, hobi, dan galeri dokumentasi aktivitas.</p>
+                </div>
+            </a>
+
+            <a href="tugas2.html" class="card card-2">
+                <div class="card-header">
+                    <span class="card-tag">02 • Digital Form</span>
+                    <div class="arrow-btn">↗</div>
+                </div>
+                <div class="card-body">
+                    <h3>Google Form Data Diri</h3>
+                    <p>Biodata Pribadi dan Foto Responden.</p>
+                </div>
+            </a>
+
+            <a href="tugas3.html" class="card card-3">
+                <div class="card-header">
+                    <span class="card-tag">03 • PIECES Evaluation</span>
+                    <div class="arrow-btn">↗</div>
+                </div>
+                <div class="card-body">
+                    <h3>Google Form Dompet Digital</h3>
+                    <p>Evaluasi Tingkat Kepuasan Penggunaan Dompet Digital LinkAja Berdasarkan Metode PIECES.</p>
+                </div>
+            </a>
+
+            <a href="tugas4.html" class="card card-4">
+                <div class="card-header">
+                    <span class="card-tag">04 • Team Collaboration</span>
+                    <div class="arrow-btn">↗</div>
+                </div>
+                <div class="card-body">
+                    <h3>Website Poklahsar</h3>
+                    <p>Website Poklahsar Tugas Kelompok.</p>
+                </div>
+            </a>
+        </main>
+
+        <footer>
+            Crafted with ✨ by Andhara Dila Manggala Putri
+        </footer>
+    </div>
+
+</body>
+</html>
