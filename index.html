@@ -16,8 +16,9 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
-            background-color: #0b0f19;
-            color: #f8fafc;
+            /* Latar belakang cerah dengan gradasi lembut */
+            background: linear-gradient(135deg, #fff5f7 0%, #fef9c3 45%, #e0f2fe 100%);
+            color: #1e293b;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,25 +28,37 @@
             overflow-x: hidden;
         }
 
-        /* Efek Cahaya Ambient di Latar Belakang */
-        .glow-1 {
+        /* Dekorasi Lingkaran Warna-Warni di Latar Belakang */
+        .blob-1 {
             position: fixed;
-            top: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            top: -80px;
+            left: -80px;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, transparent 70%);
             z-index: 0;
             pointer-events: none;
         }
 
-        .glow-2 {
+        .blob-2 {
             position: fixed;
-            bottom: -120px;
-            right: -80px;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+            bottom: -100px;
+            right: -60px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .blob-3 {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.25) 0%, transparent 70%);
             z-index: 0;
             pointer-events: none;
         }
@@ -59,38 +72,38 @@
 
         /* Bagian Profil Atas (Hero Card) */
         .profile-banner {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 2px solid #ffffff;
+            backdrop-filter: blur(18px);
+            border-radius: 32px;
             padding: 45px 35px;
             text-align: center;
-            margin-bottom: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 26px;
+            box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.12), 0 10px 25px -10px rgba(0, 0, 0, 0.05);
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(212, 175, 55, 0.12);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #facc15;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 2px;
+            background: linear-gradient(90deg, #fce7f3, #fef3c7);
+            border: 1px solid #fbcfe8;
+            color: #db2777;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
-            padding: 7px 18px;
+            padding: 8px 20px;
             border-radius: 50px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .dot {
-            width: 7px;
-            height: 7px;
-            background-color: #facc15;
+            width: 8px;
+            height: 8px;
+            background-color: #ec4899;
             border-radius: 50%;
-            box-shadow: 0 0 8px #facc15;
+            box-shadow: 0 0 8px rgba(236, 72, 153, 0.6);
         }
 
         .name {
@@ -99,21 +112,22 @@
             font-weight: 700;
             letter-spacing: -0.5px;
             line-height: 1.2;
-            margin-bottom: 14px;
-            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            margin-bottom: 12px;
+            /* Gradasi warna teks yang cerah */
+            background: linear-gradient(135deg, #be185d 0%, #ea580c 50%, #0284c7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            font-size: 1rem;
-            color: #94a3b8;
-            font-weight: 500;
+            font-size: 1.05rem;
+            color: #334155;
+            font-weight: 700;
             margin-bottom: 6px;
         }
 
         .campus {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: #64748b;
             font-weight: 500;
         }
@@ -127,42 +141,24 @@
 
         .card {
             position: relative;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid #ffffff;
+            border-radius: 26px;
             padding: 28px 26px;
             text-decoration: none;
-            color: #f8fafc;
+            color: #1e293b;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 195px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.06);
             overflow: hidden;
         }
 
-        /* Garis cahaya di atas kartu saat disentuh */
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
         .card:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.18);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            transform: translateY(-7px) scale(1.01);
+            box-shadow: 0 22px 40px -12px rgba(0, 0, 0, 0.12);
         }
 
         .card-header {
@@ -177,74 +173,122 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #94a3b8;
-            background: rgba(255, 255, 255, 0.06);
-            padding: 5px 12px;
-            border-radius: 8px;
+            padding: 6px 14px;
+            border-radius: 10px;
         }
 
         .arrow-btn {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            color: #cbd5e1;
+            font-size: 1.1rem;
+            font-weight: 700;
             transition: all 0.3s ease;
         }
 
         .card:hover .arrow-btn {
-            background: #facc15;
-            color: #0b0f19;
-            transform: rotate(45deg);
+            transform: rotate(45deg) scale(1.1);
         }
 
         .card-body h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.45rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 8px;
-            color: #ffffff;
+            color: #0f172a;
         }
 
         .card-body p {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.55;
         }
 
-        /* Kartu 1 (Aksen Emas Lembut) */
-        .card-featured {
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border-color: rgba(212, 175, 55, 0.25);
+        /* --- TEMA WARNA TIAP KARTU --- */
+
+        /* Kartu 1: Pink Coral Cerah */
+        .card-1 {
+            background: linear-gradient(145deg, #ffffff 30%, #ffe4e6 100%);
+            border-color: #fecdd3;
+        }
+        .card-1 .card-tag {
+            background: #ffe4e6;
+            color: #e11d48;
+        }
+        .card-1 .arrow-btn {
+            background: #ffe4e6;
+            color: #e11d48;
+        }
+        .card-1:hover .arrow-btn {
+            background: #f43f5e;
+            color: #ffffff;
         }
 
-        .card-featured .card-tag {
-            background: rgba(250, 204, 21, 0.15);
-            color: #fde047;
+        /* Kartu 2: Kuning Mangga / Oranye Hangat */
+        .card-2 {
+            background: linear-gradient(145deg, #ffffff 30%, #fef3c7 100%);
+            border-color: #fde68a;
+        }
+        .card-2 .card-tag {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        .card-2 .arrow-btn {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        .card-2:hover .arrow-btn {
+            background: #f59e0b;
+            color: #ffffff;
         }
 
-        /* Kartu 4 (Aksen Biru Lembut untuk Tugas Kelompok) */
-        .card-group {
-            background: linear-gradient(145deg, rgba(56, 189, 248, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border-color: rgba(56, 189, 248, 0.22);
+        /* Kartu 3: Hijau Mint Segar */
+        .card-3 {
+            background: linear-gradient(145deg, #ffffff 30%, #d1fae5 100%);
+            border-color: #a7f3d0;
+        }
+        .card-3 .card-tag {
+            background: #d1fae5;
+            color: #059669;
+        }
+        .card-3 .arrow-btn {
+            background: #d1fae5;
+            color: #059669;
+        }
+        .card-3:hover .arrow-btn {
+            background: #10b981;
+            color: #ffffff;
         }
 
-        .card-group .card-tag {
-            background: rgba(56, 189, 248, 0.15);
-            color: #7dd3fc;
+        /* Kartu 4: Biru Langit / Ungu Pastel */
+        .card-4 {
+            background: linear-gradient(145deg, #ffffff 30%, #e0f2fe 100%);
+            border-color: #bae6fd;
+        }
+        .card-4 .card-tag {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+        .card-4 .arrow-btn {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+        .card-4:hover .arrow-btn {
+            background: #0ea5e9;
+            color: #ffffff;
         }
 
         /* Footer */
         footer {
             margin-top: 36px;
             text-align: center;
-            font-size: 0.75rem;
-            color: #475569;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #64748b;
+            letter-spacing: 0.5px;
         }
 
         /* Responsif untuk layar HP */
@@ -263,8 +307,9 @@
 </head>
 <body>
 
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
 
     <div class="wrapper">
         <!-- Kartu Identitas Atas -->
@@ -282,7 +327,7 @@
         <main class="bento-grid">
             
             <!-- TUGAS 1 -->
-            <a href="tugas1.html" class="card card-featured">
+            <a href="tugas1.html" class="card card-1">
                 <div class="card-header">
                     <span class="card-tag">Tugas 01</span>
                     <div class="arrow-btn">↗</div>
@@ -294,7 +339,7 @@
             </a>
 
             <!-- TUGAS 2 -->
-            <a href="tugas2.html" class="card">
+            <a href="tugas2.html" class="card card-2">
                 <div class="card-header">
                     <span class="card-tag">Tugas 02</span>
                     <div class="arrow-btn">↗</div>
@@ -306,7 +351,7 @@
             </a>
 
             <!-- TUGAS 3 -->
-            <a href="tugas3.html" class="card">
+            <a href="tugas3.html" class="card card-3">
                 <div class="card-header">
                     <span class="card-tag">Tugas 03</span>
                     <div class="arrow-btn">↗</div>
@@ -318,7 +363,7 @@
             </a>
 
             <!-- TUGAS 4 -->
-            <a href="tugas4.html" class="card card-group">
+            <a href="tugas4.html" class="card card-4">
                 <div class="card-header">
                     <span class="card-tag">Tugas 04</span>
                     <div class="arrow-btn">↗</div>
@@ -332,7 +377,7 @@
         </main>
 
         <footer>
-            &copy; Andhara Dila Manggala Putri 
+            © Andhara Dila Manggala Putri
         </footer>
     </div>
 
