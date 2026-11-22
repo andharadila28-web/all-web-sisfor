@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andhara's Digital Space | Andhara Dila Manggala Putri</title>
+    <title>Andhara's Digital Portfolio | Andhara Dila Manggala Putri</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -157,11 +157,11 @@
             border: 2px solid #ffffff;
             backdrop-filter: blur(20px);
             border-radius: 32px;
-            padding: 32px 36px;
-            margin-bottom: 28px;
+            padding: 34px 36px;
+            margin-bottom: 30px;
             box-shadow: 0 24px 50px -15px rgba(236, 72, 153, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.05);
             display: grid;
-            grid-template-columns: 1.35fr 0.85fr;
+            grid-template-columns: 1.25fr 0.95fr;
             gap: 28px;
             align-items: center;
         }
@@ -187,17 +187,17 @@
             font-weight: 700;
             line-height: 1.18;
             letter-spacing: -0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             background: linear-gradient(135deg, #be185d 0%, #ea580c 50%, #0284c7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-bio {
-            font-size: 0.92rem;
+            font-size: 0.91rem;
             color: #475569;
-            line-height: 1.6;
-            margin-bottom: 16px;
+            line-height: 1.65;
+            margin-bottom: 18px;
         }
 
         .hero-bio strong {
@@ -209,7 +209,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .tag-chip {
@@ -242,34 +242,40 @@
             box-shadow: 0 14px 25px -6px rgba(236, 72, 153, 0.55);
         }
 
-        /* Kartu Foto Kanan */
+        /* ID Card Mahasiswa Kanan */
         .hero-visual {
             background: linear-gradient(145deg, #ffe4e6 0%, #fef3c7 52%, #e0f2fe 100%);
             border: 2px solid #ffffff;
             border-radius: 26px;
-            padding: 22px 20px;
+            padding: 24px 20px;
             text-align: center;
             box-shadow: 0 16px 35px -12px rgba(244, 114, 182, 0.25);
         }
 
         .avatar-circle {
-            width: 98px;
-            height: 98px;
+            width: 88px;
+            height: 88px;
             margin: 0 auto 12px;
             border-radius: 50%;
             background: linear-gradient(135deg, #f43f5e, #fb923c, #38bdf8);
             padding: 4px;
-            box-shadow: 0 10px 24px -6px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 10px 24px -6px rgba(244, 63, 94, 0.38);
             animation: float 4s ease-in-out infinite;
         }
 
-        .avatar-photo {
+        .avatar-inner {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            object-fit: cover;
-            display: block;
             background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #be185d;
+            letter-spacing: -0.5px;
         }
 
         @keyframes float {
@@ -277,50 +283,66 @@
             50% { transform: translateY(-6px); }
         }
 
-        .visual-role {
-            font-size: 0.85rem;
+        .visual-name {
+            font-size: 1rem;
             font-weight: 800;
             color: #0f172a;
+            line-height: 1.3;
             margin-bottom: 3px;
         }
 
-        .visual-campus {
-            font-size: 0.75rem;
-            color: #475569;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .visual-prodi {
+            font-size: 0.78rem;
+            color: #db2777;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .visual-quote {
-            font-size: 0.74rem;
-            color: #be185d;
-            font-weight: 600;
-            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.92);
+            border-radius: 14px;
+            padding: 10px 12px;
+            font-size: 0.73rem;
+            font-style: italic;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.48;
             margin-bottom: 14px;
-            padding: 0 4px;
         }
 
         .visual-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 8px;
-            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.84);
+            padding: 10px 8px;
+            border-radius: 16px;
             border: 1px solid #ffffff;
+        }
+
+        .stat-box {
+            padding: 2px 4px;
+        }
+
+        .stat-box:first-child {
+            border-right: 1px solid rgba(203, 213, 225, 0.6);
         }
 
         .stat-box span {
             display: block;
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-weight: 800;
             color: #db2777;
+            margin-bottom: 2px;
         }
 
         .stat-box small {
-            font-size: 0.66rem;
+            display: block;
+            font-size: 0.65rem;
             font-weight: 600;
             color: #64748b;
+            line-height: 1.25;
         }
 
         /* Section Header Karya */
@@ -455,15 +477,31 @@
         }
 
         @media (max-width: 768px) {
-            .hero-card { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; }
-            .interest-tags { justify-content: center; }
-            .hero-title { font-size: 2rem; }
-            .nav-links { display: none; }
+            .hero-card {
+                grid-template-columns: 1fr;
+                padding: 28px 22px;
+                text-align: center;
+            }
+            .interest-tags {
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
         }
 
         @media (max-width: 640px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -496,9 +534,10 @@
                 <div class="greeting-pill">
                     <span>✨</span> Personal Creative Space & Portfolio
                 </div>
-                <h1 class="hero-title">Andhara Dila Manggala Putri</h1>
+                <h1 class="hero-title">Andhara’s Digital Portfolio</h1>
                 <p class="hero-bio">
-                    Halo, selamat datang di ruang digitalku! Halaman ini merangkum tugas mata kuliah <strong>Sistem Informasi Manajemen Perikanan</strong>. Kamu bisa langsung mengakses 4 proyek di bawah ini sebagai dokumentasi perjalanan belajarku selama perkuliahan. Terima Kasih banyak sudah berkunjung, selamat menjelajah!
+                    Halo, selamat datang di ruang digitalku! Halaman ini merangkum tugas mata kuliah <strong>Sistem Informasi Manajemen Perikanan</strong>. Kamu bisa langsung mengakses 4 proyek di bawah ini sebagai dokumentasi perjalanan belajarku selama perkuliahan. Terima kasih banyak sudah berkunjung, selamat menjelajah!
+                </p>
 
                 <div class="interest-tags">
                     <span class="tag-chip">💻 Web Exploration</span>
@@ -509,23 +548,24 @@
                 <a href="#karya" class="btn-primary">Jelajahi Karya ↓</a>
             </div>
 
-            <!-- Kartu Profil Kanan -->
+            <!-- ID Card Mahasiswa Kanan -->
             <div class="hero-visual">
                 <div class="avatar-circle">
-                    <!-- Ganti foto.jpg sesuai nama file fotomu -->
-                    <img src="foto.jpg" alt="Foto Andhara Dila Manggala Putri" class="avatar-photo" onerror="this.src='https://ui-avatars.com/api/?name=Andhara+Dila&background=fce7f3&color=be185d&size=256'">
+                    <div class="avatar-inner">AD</div>
                 </div>
-                <div class="visual-role">Mahasiswi Sosial Ekonomi Perikanan</div>
-                <div class="visual-campus">Universitas Lambung Mangkurat</div>
-                <div class="visual-quote">"Merangkai ide, riset, dan visual menjadi karya web yang bermakna ✨"</div>
+                <div class="visual-name">Andhara Dila Manggala Putri</div>
+                <div class="visual-prodi">Sosial Ekonomi Perikanan</div>
+                <div class="visual-quote">
+                    “Hidup adalah seni menggambar tanpa penghapus—setiap goresan proses selalu punya makna.”
+                </div>
                 <div class="visual-stats">
                     <div class="stat-box">
-                        <span>04</span>
-                        <small>Proyek Web</small>
+                        <span>SIM</span>
+                        <small>Sistem Informasi Manajemen</small>
                     </div>
                     <div class="stat-box">
                         <span>ULM</span>
-                        <small>Banjarbaru</small>
+                        <small>Fakultas Perikanan & Kelautan</small>
                     </div>
                 </div>
             </div>
