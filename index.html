@@ -112,7 +112,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
         }
 
         .nav-links a {
@@ -153,7 +153,7 @@
             50% { opacity: 0.5; transform: scale(1.25); }
         }
 
-        /* --- HERO SECTION (CREATIVE PORTFOLIO STYLE) --- */
+        /* --- HERO SECTION --- */
         .hero-card {
             background: rgba(255, 255, 255, 0.82);
             border: 2px solid #ffffff;
@@ -241,7 +241,7 @@
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 700;
-            padding: 13px 24px;
+            padding: 13px 26px;
             border-radius: 50px;
             box-shadow: 0 10px 20px -6px rgba(236, 72, 153, 0.45);
             transition: all 0.3s ease;
@@ -250,27 +250,6 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 14px 25px -6px rgba(236, 72, 153, 0.55);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #ffffff;
-            color: #1e293b;
-            border: 1.5px solid #e2e8f0;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 700;
-            padding: 12px 22px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: #f472b6;
-            color: #db2777;
-            transform: translateY(-3px);
         }
 
         /* Kartu Visual Kanan pada Hero */
@@ -285,8 +264,8 @@
         }
 
         .avatar-circle {
-            width: 96px;
-            height: 96px;
+            width: 112px;
+            height: 112px;
             margin: 0 auto 14px;
             border-radius: 50%;
             background: linear-gradient(135deg, #f43f5e, #fb923c, #38bdf8);
@@ -295,18 +274,13 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        .avatar-inner {
+        .avatar-photo {
             width: 100%;
             height: 100%;
             border-radius: 50%;
+            object-fit: cover;
+            display: block;
             background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #be185d;
         }
 
         @keyframes float {
@@ -315,25 +289,33 @@
         }
 
         .visual-role {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 800;
             color: #0f172a;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .visual-campus {
             font-size: 0.76rem;
             color: #475569;
             font-weight: 600;
-            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .visual-quote {
+            font-size: 0.75rem;
+            color: #be185d;
+            font-weight: 600;
+            line-height: 1.45;
             margin-bottom: 16px;
+            padding: 0 6px;
         }
 
         .visual-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.78);
             padding: 10px;
             border-radius: 16px;
             border: 1px solid #ffffff;
@@ -574,7 +556,6 @@
             <div class="nav-links">
                 <a href="#beranda">Beranda</a>
                 <a href="#karya">Eksplorasi Karya</a>
-                <a href="tugas1.html">Profil</a>
             </div>
             <div class="nav-status">
                 <span class="status-dot"></span>
@@ -601,17 +582,18 @@
 
                 <div class="hero-actions">
                     <a href="#karya" class="btn-primary">Jelajahi Karya ↓</a>
-                    <a href="tugas1.html" class="btn-secondary">Kenalan Lebih Dekat ↗</a>
                 </div>
             </div>
 
             <!-- Kartu Profil Visual Kanan -->
             <div class="hero-visual">
                 <div class="avatar-circle">
-                    <div class="avatar-inner">AD</div>
+                    <!-- Ganti 'foto.jpg' dengan nama file foto kamu -->
+                    <img src="foto.jpg" alt="Foto Andhara Dila Manggala Putri" class="avatar-photo" onerror="this.src='https://ui-avatars.com/api/?name=Andhara+Dila&background=fce7f3&color=be185d&size=256'">
                 </div>
-                <div class="visual-role">Sistem Informasi Manajemen</div>
-                <div class="visual-campus">Sosial Ekonomi Perikanan<br>Universitas Lambung Mangkurat</div>
+                <div class="visual-role">Mahasiswi Sosial Ekonomi Perikanan</div>
+                <div class="visual-campus">Universitas Lambung Mangkurat</div>
+                <div class="visual-quote">"Merangkai ide, riset, dan visual menjadi karya web yang bermakna ✨"</div>
                 <div class="visual-stats">
                     <div class="stat-box">
                         <span>04</span>
@@ -624,81 +606,3 @@
                 </div>
             </div>
         </section>
-
-        <!-- Judul Bagian Daftar Karya -->
-        <div id="karya" class="section-header">
-            <div>
-                <h2>Eksplorasi Karya & Proyek</h2>
-                <p>Kumpulan halaman web, formulir survei digital, dan kolaborasi tim.</p>
-            </div>
-            <span class="project-count">4 Proyek Tersedia</span>
-        </div>
-
-        <!-- Grid 4 Kartu Tugas -->
-        <main class="bento-grid">
-            
-            <!-- TUGAS 1 -->
-            <a href="tugas1.html" class="card card-1">
-                <div class="card-header">
-                    <div class="card-meta">
-                        <span class="card-tag">01 • Personal Profile</span>
-                    </div>
-                    <div class="arrow-btn">↗</div>
-                </div>
-                <div class="card-body">
-                    <h3>Biodata Diri</h3>
-                    <p>Profil pribadi, hobi, dan galeri dokumentasi aktivitas.</p>
-                </div>
-            </a>
-
-            <!-- TUGAS 2 -->
-            <a href="tugas2.html" class="card card-2">
-                <div class="card-header">
-                    <div class="card-meta">
-                        <span class="card-tag">02 • Digital Form</span>
-                    </div>
-                    <div class="arrow-btn">↗</div>
-                </div>
-                <div class="card-body">
-                    <h3>Google Form Data Diri</h3>
-                    <p>Biodata Pribadi dan Foto Responden.</p>
-                </div>
-            </a>
-
-            <!-- TUGAS 3 -->
-            <a href="tugas3.html" class="card card-3">
-                <div class="card-header">
-                    <div class="card-meta">
-                        <span class="card-tag">03 • PIECES Evaluation</span>
-                    </div>
-                    <div class="arrow-btn">↗</div>
-                </div>
-                <div class="card-body">
-                    <h3>Google Form Dompet Digital</h3>
-                    <p>Evaluasi Tingkat Kepuasan Penggunaan Dompet Digital LinkAja Berdasarkan Metode PIECES.</p>
-                </div>
-            </a>
-
-            <!-- TUGAS 4 -->
-            <a href="tugas4.html" class="card card-4">
-                <div class="card-header">
-                    <div class="card-meta">
-                        <span class="card-tag">04 • Team Collaboration</span>
-                    </div>
-                    <div class="arrow-btn">↗</div>
-                </div>
-                <div class="card-body">
-                    <h3>Website Poklahsar</h3>
-                    <p>Website Poklahsar Tugas Kelompok.</p>
-                </div>
-            </a>
-
-        </main>
-
-        <footer>
-            Crafted with ✨ by Andhara Dila Manggala Putri
-        </footer>
-    </div>
-
-</body>
-</html>
