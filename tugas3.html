@@ -1,540 +1,476 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 03 • Google Form & Looker Studio LinkAja | Andhara Dila Manggala Putri</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tugas 03 — Evaluasi LinkAja (PIECES) | Andhara Dina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink-primary: #ff5d9e;
+      --pink-soft: #ffe3ef;
+      --mango-yellow: #ffb703;
+      --cream-bg: #fffaf5;
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --text-dark: #2b2338;
+      --text-muted: #665c75;
+      --shadow-soft: 0 18px 40px rgba(255, 93, 158, 0.12);
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fff5f7 0%, #fef9c3 48%, #e0f2fe 100%);
-            color: #1e293b;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 20px 52px;
-            position: relative;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background:
+        radial-gradient(circle at 12% 15%, #ffd1e6 0%, transparent 38%),
+        radial-gradient(circle at 88% 20%, #ffe8a3 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, #d8f3ff 0%, transparent 45%),
+        var(--cream-bg);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
 
-        /* Dekorasi Latar Belakang Pastel */
-        .blob-1 {
-            position: fixed;
-            top: -90px;
-            left: -90px;
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
+    .navbar-wrap {
+      position: sticky;
+      top: 18px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
 
-        .blob-2 {
-            position: fixed;
-            bottom: -110px;
-            right: -70px;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
+    .navbar {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(43, 35, 56, 0.08);
+      border-radius: 999px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .blob-3 {
-            position: fixed;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 520px;
-            height: 520px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
+    .navbar a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+    }
 
-        .wrapper {
-            width: 100%;
-            max-width: 980px;
-            z-index: 1;
-        }
+    .navbar a:hover {
+      color: var(--pink-primary);
+      background: rgba(255, 93, 158, 0.08);
+    }
 
-        /* Floating Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(16px);
-            border: 2px solid #ffffff;
-            border-radius: 50px;
-            padding: 10px 22px;
-            margin-bottom: 22px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+    .navbar a.active {
+      background: linear-gradient(135deg, var(--pink-primary), #ff85a1);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(255, 93, 158, 0.32);
+    }
 
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #0f172a;
-            background: #ffffff;
-            padding: 7px 16px;
-            border-radius: 50px;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            transition: all 0.25s ease;
-        }
+    .container {
+      max-width: 1120px;
+      margin: 34px auto 0;
+      padding: 0 20px;
+    }
 
-        .back-btn:hover {
-            transform: translateX(-3px);
-            color: #059669;
-            border-color: #a7f3d0;
-        }
+    .hero-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+    }
 
-        .nav-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #d1fae5;
-            border: 1px solid #a7f3d0;
-            color: #047857;
-            font-size: 0.74rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 50px;
-        }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
 
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            background: #10b981;
-            border-radius: 50%;
-        }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--pink-soft);
+      color: var(--pink-primary);
+    }
 
-        /* Header Tugas 03 */
-        .page-header {
-            background: rgba(255, 255, 255, 0.85);
-            border: 2px solid #ffffff;
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 32px 36px;
-            margin-bottom: 24px;
-            box-shadow: 0 20px 45px -15px rgba(16, 185, 129, 0.14), 0 10px 25px -10px rgba(0, 0, 0, 0.05);
-        }
+    .badge.yellow {
+      background: #fff1cc;
+      color: #b87b00;
+    }
 
-        .pill-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(90deg, #d1fae5, #e0f2fe);
-            border: 1px solid #a7f3d0;
-            color: #047857;
-            font-size: 0.74rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 50px;
-            margin-bottom: 12px;
-        }
+    .hero-card h1 {
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #2b2338 20%, #d63384 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.15rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #db2777 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .hero-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 820px;
+      margin-bottom: 22px;
+    }
 
-        .page-header p {
-            font-size: 0.92rem;
-            color: #475569;
-            line-height: 1.6;
-            max-width: 720px;
-        }
+    .pieces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
 
-        /* Filter Tab Tampilan */
-        .view-switcher {
-            display: inline-flex;
-            background: rgba(255, 255, 255, 0.85);
-            border: 2px solid #ffffff;
-            padding: 6px;
-            border-radius: 50px;
-            gap: 6px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.06);
-            flex-wrap: wrap;
-        }
+    .pieces-item {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 93, 158, 0.18);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .tab-btn {
-            border: none;
-            background: transparent;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #64748b;
-            padding: 9px 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
+    .pieces-letter {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff5d9e, #ffb703);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-        .tab-btn:hover {
-            color: #0f172a;
-        }
+    .pieces-text strong {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--text-dark);
+    }
 
-        .tab-btn.active {
-            background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
-            color: #ffffff;
-            box-shadow: 0 6px 15px -4px rgba(16, 185, 129, 0.4);
-        }
+    .pieces-text span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
 
-        /* Kartu Kontainer Embed */
-        .embed-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 26px;
+    }
 
-        .embed-card {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #ffffff;
-            border-radius: 28px;
-            padding: 24px;
-            box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
+    .resource-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 22px;
+      padding: 20px 24px;
+      box-shadow: 0 12px 28px rgba(43, 35, 56, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-        .embed-card.hidden {
-            display: none;
-        }
+    .resource-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 18px;
-            padding-bottom: 16px;
-            border-bottom: 1.5px solid #f1f5f9;
-            flex-wrap: wrap;
-        }
+    .resource-info p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
 
-        .card-title-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .btn-pill {
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: transform 0.2s ease;
+    }
 
-        .icon-badge {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
+    .btn-pill:hover {
+      transform: translateY(-2px);
+    }
 
-        .icon-looker {
-            background: #e0f2fe;
-            color: #0284c7;
-        }
+    .btn-purple {
+      background: #f3e8ff;
+      color: #7e22ce;
+    }
 
-        .icon-form {
-            background: #fce7f3;
-            color: #db2777;
-        }
+    .btn-green {
+      background: #dcfce7;
+      color: #15803d;
+    }
 
-        .icon-sheet {
-            background: #d1fae5;
-            color: #059669;
-        }
+    .dashboard-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
 
-        .card-title-group h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 0 4px;
+    }
 
-        .card-title-group span {
-            display: block;
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 2px;
-        }
+    .dashboard-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .external-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 9px 16px;
-            border-radius: 50px;
-            transition: all 0.25s ease;
-        }
+    .live-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
 
-        .btn-looker-link {
-            background: #e0f2fe;
-            color: #0369a1;
-        }
+    .dashboard-title h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
 
-        .btn-looker-link:hover {
-            background: #0284c7;
-            color: #ffffff;
-        }
+    .btn-primary {
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--pink-primary), var(--mango-yellow));
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(255, 93, 158, 0.28);
+      transition: transform 0.2s ease;
+    }
 
-        .btn-form-link {
-            background: #fce7f3;
-            color: #be185d;
-        }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
 
-        .btn-form-link:hover {
-            background: #ec4899;
-            color: #ffffff;
-        }
+    .iframe-container {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid rgba(43, 35, 56, 0.08);
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
 
-        .btn-sheet-link {
-            background: #d1fae5;
-            color: #047857;
-        }
+    .iframe-container iframe {
+      width: 100%;
+      height: 980px;
+      border: none;
+      display: block;
+    }
 
-        .btn-sheet-link:hover {
-            background: #10b981;
-            color: #ffffff;
-        }
+    .embed-note {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
 
-        /* Bingkai Iframe */
-        .iframe-wrapper {
-            width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1.5px solid #e2e8f0;
-            background: #f8fafc;
-        }
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-        .iframe-looker {
-            width: 100%;
-            height: 760px;
-            border: none;
-            display: block;
-        }
+    .nav-btn {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--glass-border);
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 22px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(43, 35, 56, 0.06);
+      transition: all 0.2s ease;
+    }
 
-        .iframe-form {
-            width: 100%;
-            height: 680px;
-            border: none;
-            display: block;
-        }
+    .nav-btn:hover {
+      background: #ffffff;
+      color: var(--pink-primary);
+      transform: translateY(-2px);
+    }
 
-        .iframe-sheet {
-            width: 100%;
-            height: 520px;
-            border: none;
-            display: block;
-        }
-
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #64748b;
-        }
-
-        @media (max-width: 640px) {
-            .page-header {
-                padding: 24px 20px;
-            }
-            .page-header h1 {
-                font-size: 1.75rem;
-            }
-            .embed-card {
-                padding: 18px 16px;
-            }
-            .iframe-looker {
-                height: 620px;
-            }
-            .iframe-form {
-                height: 600px;
-            }
-            .iframe-sheet {
-                height: 440px;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .hero-card {
+        padding: 24px;
+      }
+      .dashboard-card {
+        padding: 16px;
+      }
+      .iframe-container iframe {
+        height: 720px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="blob-1"></div>
-    <div class="blob-2"></div>
-    <div class="blob-3"></div>
+  <div class="navbar-wrap">
+    <nav class="navbar">
+      <a href="index.html">Beranda</a>
+      <a href="tugas1.html">Tugas 01</a>
+      <a href="tugas2.html">Tugas 02</a>
+      <a href="tugas3.html" class="active">Tugas 03</a>
+      <a href="tugas4.html">Tugas 04</a>
+    </nav>
+  </div>
 
-    <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
-            <div class="nav-badge">
-                <span class="status-dot"></span>
-                Tugas 03 • PIECES Evaluation
-            </div>
-        </nav>
+  <main class="container">
+    <section class="hero-card">
+      <div class="badge-row">
+        <span class="badge">TUGAS 03 • SIM PERIKANAN</span>
+        <span class="badge yellow">Andhara Dina Manggala Putri • 2410715320007</span>
+      </div>
+      <h1>Evaluasi Kepuasan Pengguna Dompet Digital LinkAja (Metode PIECES)</h1>
+      <p>
+        Visualisasi interaktif hasil survei kepuasan pengguna aplikasi dompet digital <strong>LinkAja</strong> berdasarkan lima indikator kerangka kerja <strong>PIECES</strong>, terintegrasi langsung dari instrumen Google Form, rekapan Google Spreadsheet, dan dashboard Looker Studio.
+      </p>
 
-        <!-- Header Halaman -->
-        <header class="page-header">
-            <div class="pill-tag">📊 Sistem Informasi Manajemen Perikanan</div>
-            <h1>Google Form & Dashboard Dompet Digital</h1>
-            <p>
-                <strong>Evaluasi Tingkat Kepuasan Penggunaan Dompet Digital LinkAja Berdasarkan Metode PIECES</strong> melalui survei responden, visualisasi interaktif Looker Studio, dan rekap data Google Spreadsheet.
-            </p>
-        </header>
-
-        <!-- Tombol Filter Tampilan -->
-        <div class="view-switcher">
-            <button class="tab-btn active" onclick="filterSection('all', this)">Tampilkan Semua</button>
-            <button class="tab-btn" onclick="filterSection('looker', this)">📈 Dashboard Looker Studio</button>
-            <button class="tab-btn" onclick="filterSection('form', this)">📝 Formulir Survei</button>
-            <button class="tab-btn" onclick="filterSection('sheet', this)">📊 Rekap Spreadsheet</button>
+      <div class="pieces-grid">
+        <div class="pieces-item">
+          <div class="pieces-letter">P</div>
+          <div class="pieces-text">
+            <strong>Performance</strong>
+            <span>Kecepatan & kelancaran</span>
+          </div>
         </div>
+        <div class="pieces-item">
+          <div class="pieces-letter">I</div>
+          <div class="pieces-text">
+            <strong>Information</strong>
+            <span>Akurasi data & riwayat</span>
+          </div>
+        </div>
+        <div class="pieces-item">
+          <div class="pieces-letter">E</div>
+          <div class="pieces-text">
+            <strong>Economics</strong>
+            <span>Efisiensi biaya & promo</span>
+          </div>
+        </div>
+        <div class="pieces-item">
+          <div class="pieces-letter">C</div>
+          <div class="pieces-text">
+            <strong>Control & Security</strong>
+            <span>Keamanan PIN & transaksi</span>
+          </div>
+        </div>
+        <div class="pieces-item">
+          <div class="pieces-letter">E</div>
+          <div class="pieces-text">
+            <strong>Efficiency</strong>
+            <span>Kemudahan penggunaan</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Konten Utama -->
-        <main class="embed-stack">
-            
-            <!-- BAGIAN 1: DASHBOARD LOOKER STUDIO -->
-            <section id="section-looker" class="embed-card">
-                <div class="card-top">
-                    <div class="card-title-group">
-                        <div class="icon-badge icon-looker">📈</div>
-                        <div>
-                            <h2>Visualisasi Interaktif Looker Studio</h2>
-                            <span>Grafik analisis kepuasan penggunaan LinkAja berdasarkan indikator PIECES</span>
-                        </div>
-                    </div>
-                    <!-- GANTI LINK_LOOKER_STUDIO JIKA DASHBOARD SUDAH JADI -->
-                    <a href="LINK_LOOKER_STUDIO" target="_blank" rel="noopener noreferrer" class="external-btn btn-looker-link">
-                        Buka Dashboard ↗
-                    </a>
-                </div>
+    <section class="resource-grid">
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Instrumen Kuesioner</h3>
+          <p>Formulir survei skala Likert 1–5 (Google Form)</p>
+        </div>
+        <!-- Salin link Google Form dari codingan awal kamu ke dalam tanda kutip href="" di bawah ini -->
+        <a href="#" target="_blank" rel="noopener" class="btn-pill btn-purple">Buka Form ↗</a>
+      </div>
 
-                <div class="iframe-wrapper">
-                    <!-- GANTI LINK_EMBED_LOOKER_STUDIO JIKA DASHBOARD SUDAH JADI -->
-                    <iframe 
-                        class="iframe-looker"
-                        src="LINK_EMBED_LOOKER_STUDIO"
-                        allowfullscreen
-                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-                        loading="lazy">
-                        Memuat dashboard Looker Studio...
-                    </iframe>
-                </div>
-            </section>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Database Responden</h3>
+          <p>Rekap tabulasi data mentah (Google Spreadsheet)</p>
+        </div>
+        <!-- Salin link Google Spreadsheet dari codingan awal kamu ke dalam tanda kutip href="" di bawah ini -->
+        <a href="#" target="_blank" rel="noopener" class="btn-pill btn-green">Buka Sheet ↗</a>
+      </div>
+    </section>
 
-            <!-- BAGIAN 2: GOOGLE FORM (SUDAH TERPASANG) -->
-            <section id="section-form" class="embed-card">
-                <div class="card-top">
-                    <div class="card-title-group">
-                        <div class="icon-badge icon-form">📝</div>
-                        <div>
-                            <h2>Kuesioner Kepuasan LinkAja (Metode PIECES)</h2>
-                            <span>Formulir survei online untuk pengumpulan data responden</span>
-                        </div>
-                    </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGZQlgEH-qarMmviIsoz4MFpFtCGktlg2sRzh6tb25PLId_g/viewform?usp=sharing&ouid=110109880819747302279" target="_blank" rel="noopener noreferrer" class="external-btn btn-form-link">
-                        Buka Form di Tab Baru ↗
-                    </a>
-                </div>
+    <section class="dashboard-card">
+      <div class="dashboard-header">
+        <div class="dashboard-title">
+          <span class="live-dot"></span>
+          <h2>Dashboard Interaktif Looker Studio (15 Responden • 2 Halaman)</h2>
+        </div>
+        <a href="https://lookerstudio.google.com/reporting/2e139022-35a6-4826-9144-a20d050c89b7" target="_blank" rel="noopener" class="btn-primary">
+          Buka Layar Penuh ↗
+        </a>
+      </div>
 
-                <div class="iframe-wrapper">
-                    <iframe 
-                        class="iframe-form"
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSeGZQlgEH-qarMmviIsoz4MFpFtCGktlg2sRzh6tb25PLId_g/viewform?embedded=true"
-                        loading="lazy">
-                        Memuat formulir...
-                    </iframe>
-                </div>
-            </section>
+      <div class="iframe-container">
+        <iframe
+          src="https://lookerstudio.google.com/embed/reporting/2e139022-35a6-4826-9144-a20d050c89b7"
+          frameborder="0"
+          allowfullscreen
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+      </div>
 
-            <!-- BAGIAN 3: GOOGLE SPREADSHEET (SUDAH TERPASANG) -->
-            <section id="section-sheet" class="embed-card">
-                <div class="card-top">
-                    <div class="card-title-group">
-                        <div class="icon-badge icon-sheet">📊</div>
-                        <div>
-                            <h2>Database & Rekap Respons (Spreadsheet)</h2>
-                            <span>Tabel data mentah hasil jawaban kuesioner responden</span>
-                        </div>
-                    </div>
-                    <a href="https://docs.google.com/spreadsheets/d/1fWR2mu32jWsgV5VbOPd6DR8UI5bBgxCAz0uJ4xXdaes/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="external-btn btn-sheet-link">
-                        Buka Spreadsheet ↗
-                    </a>
-                </div>
+      <p class="embed-note">
+        Gunakan kontrol navigasi di bagian bawah dashboard untuk berpindah antara <strong>Halaman 1</strong> dan <strong>Halaman 2</strong>.
+      </p>
+    </section>
 
-                <div class="iframe-wrapper">
-                    <iframe 
-                        class="iframe-sheet"
-                        src="https://docs.google.com/spreadsheets/d/1fWR2mu32jWsgV5VbOPd6DR8UI5bBgxCAz0uJ4xXdaes/preview"
-                        loading="lazy">
-                        Memuat spreadsheet...
-                    </iframe>
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            Crafted with ✨ by Andhara Dila Manggala Putri
-        </footer>
+    <div class="bottom-nav">
+      <a href="tugas2.html" class="nav-btn">← Tugas 02</a>
+      <a href="tugas4.html" class="nav-btn">Tugas 04 →</a>
     </div>
-
-    <script>
-        function filterSection(type, btn) {
-            const lookerCard = document.getElementById('section-looker');
-            const formCard = document.getElementById('section-form');
-            const sheetCard = document.getElementById('section-sheet');
-            const buttons = document.querySelectorAll('.tab-btn');
-
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            lookerCard.classList.add('hidden');
-            formCard.classList.add('hidden');
-            sheetCard.classList.add('hidden');
-
-            if (type === 'all') {
-                lookerCard.classList.remove('hidden');
-                formCard.classList.remove('hidden');
-                sheetCard.classList.remove('hidden');
-            } else if (type === 'looker') {
-                lookerCard.classList.remove('hidden');
-            } else if (type === 'form') {
-                formCard.classList.remove('hidden');
-            } else if (type === 'sheet') {
-                sheetCard.classList.remove('hidden');
-            }
-        }
-    </script>
+  </main>
 
 </body>
 </html>
