@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tugas 03 — Evaluasi LinkAja (PIECES) | Andhara Dina</title>
+  <title>Tugas 03 — Evaluasi LinkAja (PIECES) | Andhara Dila</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
       --pink-soft: #ffe3ef;
       --mango-yellow: #ffb703;
       --cream-bg: #fffaf5;
-      --glass-bg: rgba(255, 255, 255, 0.75);
+      --glass-bg: rgba(255, 255, 255, 0.78);
       --glass-border: rgba(255, 255, 255, 0.9);
       --text-dark: #2b2338;
       --text-muted: #665c75;
@@ -39,6 +39,7 @@
       padding-bottom: 60px;
     }
 
+    /* Floating Glass Navigation */
     .navbar-wrap {
       position: sticky;
       top: 18px;
@@ -49,7 +50,7 @@
     }
 
     .navbar {
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
@@ -84,12 +85,14 @@
       box-shadow: 0 6px 16px rgba(255, 93, 158, 0.32);
     }
 
+    /* Container */
     .container {
       max-width: 1120px;
       margin: 34px auto 0;
       padding: 0 20px;
     }
 
+    /* Hero Card */
     .hero-card {
       background: var(--glass-bg);
       backdrop-filter: blur(18px);
@@ -143,6 +146,7 @@
       margin-bottom: 22px;
     }
 
+    /* PIECES Pills */
     .pieces-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
@@ -151,7 +155,7 @@
     }
 
     .pieces-item {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(255, 93, 158, 0.18);
       border-radius: 16px;
       padding: 12px 14px;
@@ -185,6 +189,7 @@
       color: var(--text-muted);
     }
 
+    /* Resource Links Row (GForm & GSheet) */
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -223,7 +228,7 @@
       padding: 10px 18px;
       border-radius: 999px;
       white-space: nowrap;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-pill:hover {
@@ -240,6 +245,7 @@
       color: #15803d;
     }
 
+    /* Looker Studio Embed Card */
     .dashboard-card {
       background: var(--glass-bg);
       backdrop-filter: blur(18px);
@@ -318,6 +324,7 @@
       text-align: center;
     }
 
+    /* Footer Navigation */
     .bottom-nav {
       display: flex;
       justify-content: space-between;
@@ -361,6 +368,7 @@
 </head>
 <body>
 
+  <!-- Floating Navbar -->
   <div class="navbar-wrap">
     <nav class="navbar">
       <a href="index.html">Beranda</a>
@@ -372,10 +380,11 @@
   </div>
 
   <main class="container">
+    <!-- Hero Section -->
     <section class="hero-card">
       <div class="badge-row">
         <span class="badge">TUGAS 03 • SIM PERIKANAN</span>
-        <span class="badge yellow">Andhara Dina Manggala Putri • 2410715320007</span>
+        <span class="badge yellow">Andhara Dila Manggala Putri • 2410715320007</span>
       </div>
       <h1>Evaluasi Kepuasan Pengguna Dompet Digital LinkAja (Metode PIECES)</h1>
       <p>
@@ -421,14 +430,14 @@
       </div>
     </section>
 
+    <!-- Sumber Data Pendukung (Google Form & Google Spreadsheet) -->
     <section class="resource-grid">
       <div class="resource-card">
         <div class="resource-info">
           <h3>Instrumen Kuesioner</h3>
           <p>Formulir survei skala Likert 1–5 (Google Form)</p>
         </div>
-        <!-- Salin link Google Form dari codingan awal kamu ke dalam tanda kutip href="" di bawah ini -->
-        <a href="#" target="_blank" rel="noopener" class="btn-pill btn-purple">Buka Form ↗</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGZQlgEH-qarMmviIsoz4MFpFtCGktlg2sRzh6tb25PLId_g/viewform?usp=sharing&ouid=110109880819747302279" target="_blank" rel="noopener noreferrer" class="btn-pill btn-purple">Buka Form ↗</a>
       </div>
 
       <div class="resource-card">
@@ -436,18 +445,18 @@
           <h3>Database Responden</h3>
           <p>Rekap tabulasi data mentah (Google Spreadsheet)</p>
         </div>
-        <!-- Salin link Google Spreadsheet dari codingan awal kamu ke dalam tanda kutip href="" di bawah ini -->
-        <a href="#" target="_blank" rel="noopener" class="btn-pill btn-green">Buka Sheet ↗</a>
+        <a href="https://docs.google.com/spreadsheets/d/1fWR2mu32jWsgV5VbOPd6DR8UI5bBgxCAz0uJ4xXdaes/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-pill btn-green">Buka Sheet ↗</a>
       </div>
     </section>
 
+    <!-- Dashboard Looker Studio -->
     <section class="dashboard-card">
       <div class="dashboard-header">
         <div class="dashboard-title">
           <span class="live-dot"></span>
           <h2>Dashboard Interaktif Looker Studio (15 Responden • 2 Halaman)</h2>
         </div>
-        <a href="https://lookerstudio.google.com/reporting/2e139022-35a6-4826-9144-a20d050c89b7" target="_blank" rel="noopener" class="btn-primary">
+        <a href="https://lookerstudio.google.com/reporting/2e139022-35a6-4826-9144-a20d050c89b7" target="_blank" rel="noopener noreferrer" class="btn-primary">
           Buka Layar Penuh ↗
         </a>
       </div>
@@ -466,6 +475,7 @@
       </p>
     </section>
 
+    <!-- Navigasi Bawah -->
     <div class="bottom-nav">
       <a href="tugas2.html" class="nav-btn">← Tugas 02</a>
       <a href="tugas4.html" class="nav-btn">Tugas 04 →</a>
