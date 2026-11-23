@@ -34,9 +34,42 @@
             display: flex; /* Menyusun nama logo dan tombol menu agar berjejer ke samping (kiri dan kanan) */
             justify-content: space-between; /* Mendorong logo mentok ke kiri dan tombol menu mentok ke kanan */
             align-items: center; /* Meluruskan posisi logo dan tombol menu agar sejajar rapi di tengah */
-            padding: 25px 50px; /* Memberi ruang napas di dalam kotak menu (atas-bawah dan kiri-kanan) */
+            padding: 20px 50px; /* Memberi ruang napas di dalam kotak menu (atas-bawah dan kiri-kanan) */
             border-bottom: 1px solid #e2e8f0; /* Memberi garis tipis sebagai pembatas di bawah menu */
             z-index: 1000; /* Memastikan menu selalu berada di lapisan paling atas (tidak tertimpa foto atau tulisan lain) */
+            gap: 15px; /* Jarak aman jika layar diperkecil */
+            flex-wrap: wrap; /* Otomatis turun baris dengan rapi di layar HP yang sempit */
+        }
+
+        .nav-left {
+            display: flex; /* Menyusun tombol kembali dan logo sejajar di sisi kiri */
+            align-items: center; /* Meluruskan posisi vertikal di tengah */
+            gap: 20px; /* Memberi jarak antara tombol kembali dan logo "Andhara." */
+        }
+
+        /* Pengaturan Tombol Kembali ke Halaman Utama */
+        .btn-home {
+            display: inline-flex; /* Membuat ikon panah dan tulisan sejajar rapi */
+            align-items: center; /* Rata tengah secara vertikal */
+            gap: 6px; /* Jarak antara panah ← dan tulisan */
+            text-decoration: none; /* Menghilangkan garis bawah link */
+            background-color: #ffffff; /* Latar tombol putih bersih */
+            color: #1a202c; /* Warna tulisan hitam elegan */
+            border: 1px solid #cbd5e0; /* Garis bingkai tipis abu-abu */
+            padding: 8px 16px; /* Ruang dalam tombol */
+            border-radius: 50px; /* Membuat sudut tombol melengkung seperti kapsul */
+            font-size: 0.75rem; /* Ukuran huruf tombol */
+            font-weight: 700; /* Menebalkan tulisan tombol */
+            letter-spacing: 1px; /* Jarak antar huruf */
+            text-transform: uppercase; /* Huruf kapital agar serasi dengan menu */
+            transition: all 0.3s ease; /* Efek transisi halus saat disentuh mouse */
+        }
+
+        .btn-home:hover {
+            background-color: #1a202c; /* Berubah menjadi hitam elegan saat disentuh mouse */
+            color: #ffffff; /* Tulisan berubah menjadi putih */
+            border-color: #1a202c; /* Warna garis tepi menyesuaikan latar */
+            transform: translateX(-3px); /* Efek geser sedikit ke kiri seperti arah panah kembali */
         }
 
         .logo {
@@ -285,12 +318,47 @@
         /* Pengaturan Bagian Paling Bawah (Footer) */
         footer {
             text-align: center; /* Meratakan tulisan penutup ke tengah */
-            padding: 30px; /* Ruang kosong di atas dan bawah tulisan penutup */
+            padding: 36px 20px; /* Ruang kosong di atas dan bawah tulisan penutup */
             background-color: #0f172a; /* Warna latar belakang hitam pekat */
             color: #64748b; /* Warna tulisan abu-abu redup */
             font-size: 0.75rem; /* Ukuran tulisan kecil */
             letter-spacing: 1.5px; /* Jarak renggang antar huruf */
             text-transform: uppercase; /* Semua huruf otomatis menjadi KAPITAL */
+        }
+
+        .footer-home-link {
+            display: inline-block; /* Membuat tombol tampil rapi di atas hak cipta */
+            margin-bottom: 16px; /* Memberi jarak ke tulisan hak cipta di bawahnya */
+            color: #e2e8f0; /* Warna tulisan terang */
+            text-decoration: none; /* Menghilangkan garis bawah */
+            border: 1px solid #334155; /* Garis bingkai tipis */
+            padding: 8px 18px; /* Ruang dalam tombol */
+            border-radius: 50px; /* Sudut tombol melengkung */
+            font-weight: 700; /* Menebalkan tulisan */
+            transition: all 0.3s ease; /* Animasi halus saat disentuh mouse */
+        }
+
+        .footer-home-link:hover {
+            background-color: #ffffff; /* Latar berubah putih saat disentuh mouse */
+            color: #0f172a; /* Tulisan berubah gelap */
+            border-color: #ffffff; /* Garis tepi putih */
+        }
+
+        /* Penyesuaian Menu untuk Layar HP */
+        @media (max-width: 680px) {
+            nav {
+                padding: 16px 20px; /* Mengurangi ruang pinggir menu agar pas di layar HP */
+                justify-content: center; /* Menengahkan isi menu di HP */
+            }
+            .nav-links a {
+                margin: 0 12px; /* Merapikan jarak tombol menu di HP */
+            }
+            header h1 {
+                font-size: 2.3rem; /* Menyesuaikan ukuran judul utama di HP */
+            }
+            .biodata-card-box {
+                padding: 30px 22px; /* Menyesuaikan ruang dalam kotak biodata di HP */
+            }
         }
     </style> <!-- Akhir dari bagian rias wajah website -->
 </head> <!-- Akhir dari bagian otak website -->
@@ -299,7 +367,10 @@
 
     <!-- MENU ATAS -->
     <nav> <!-- Wadah menu navigasi paling atas -->
-        <div class="logo">Andhara.</div> <!-- Tulisan nama/logo di pojok kiri atas -->
+        <div class="nav-left"> <!-- Wadah sisi kiri menu (tombol kembali + logo) -->
+            <a href="index.html" class="btn-home">← Halaman Utama</a> <!-- Tombol kembali ke halaman portofolio utama (index.html) -->
+            <div class="logo">Andhara.</div> <!-- Tulisan nama/logo di sisi kiri atas -->
+        </div>
         <div class="nav-links"> <!-- Kumpulan tombol menu di pojok kanan atas -->
             <a href="#biodata">Biodata</a> <!-- Tombol yang jika diklik akan menggeser layar ke bagian Biodata -->
             <a href="#hobi">Hobi</a> <!-- Tombol yang jika diklik akan menggeser layar ke bagian Hobi -->
@@ -423,7 +494,8 @@
 
     <!-- BAGIAN PENUTUP PALING BAWAH -->
     <footer> <!-- Catatan kaki di ujung paling bawah halaman -->
-        &copy; Andhara Dila Manggala Putri <!-- Tulisan hak cipta (kode &copy; akan otomatis berubah menjadi simbol ©) -->
+        <a href="index.html" class="footer-home-link">← Kembali ke Halaman Utama</a><br> <!-- Tombol kembali di bagian bawah halaman -->
+        © Andhara Dila Manggala Putri <!-- Tulisan hak cipta (kode © akan otomatis berubah menjadi simbol ©) -->
     </footer>
 
 </body> <!-- Akhir dari bagian tubuh website -->
