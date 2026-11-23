@@ -432,8 +432,109 @@
                             <span>Grafik analisis kepuasan penggunaan LinkAja berdasarkan indikator PIECES</span>
                         </div>
                     </div>
-                    <!-- GANTI LINK_LOOKER_STUDIO DI BAWAH INI -->
+                    <!-- GANTI LINK_LOOKER_STUDIO JIKA DASHBOARD SUDAH JADI -->
                     <a href="LINK_LOOKER_STUDIO" target="_blank" rel="noopener noreferrer" class="external-btn btn-looker-link">
                         Buka Dashboard ↗
                     </a>
                 </div>
+
+                <div class="iframe-wrapper">
+                    <!-- GANTI LINK_EMBED_LOOKER_STUDIO JIKA DASHBOARD SUDAH JADI -->
+                    <iframe 
+                        class="iframe-looker"
+                        src="LINK_EMBED_LOOKER_STUDIO"
+                        allowfullscreen
+                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                        loading="lazy">
+                        Memuat dashboard Looker Studio...
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- BAGIAN 2: GOOGLE FORM (SUDAH TERPASANG) -->
+            <section id="section-form" class="embed-card">
+                <div class="card-top">
+                    <div class="card-title-group">
+                        <div class="icon-badge icon-form">📝</div>
+                        <div>
+                            <h2>Kuesioner Kepuasan LinkAja (Metode PIECES)</h2>
+                            <span>Formulir survei online untuk pengumpulan data responden</span>
+                        </div>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGZQlgEH-qarMmviIsoz4MFpFtCGktlg2sRzh6tb25PLId_g/viewform?usp=sharing&ouid=110109880819747302279" target="_blank" rel="noopener noreferrer" class="external-btn btn-form-link">
+                        Buka Form di Tab Baru ↗
+                    </a>
+                </div>
+
+                <div class="iframe-wrapper">
+                    <iframe 
+                        class="iframe-form"
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSeGZQlgEH-qarMmviIsoz4MFpFtCGktlg2sRzh6tb25PLId_g/viewform?embedded=true"
+                        loading="lazy">
+                        Memuat formulir...
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- BAGIAN 3: GOOGLE SPREADSHEET (SUDAH TERPASANG) -->
+            <section id="section-sheet" class="embed-card">
+                <div class="card-top">
+                    <div class="card-title-group">
+                        <div class="icon-badge icon-sheet">📊</div>
+                        <div>
+                            <h2>Database & Rekap Respons (Spreadsheet)</h2>
+                            <span>Tabel data mentah hasil jawaban kuesioner responden</span>
+                        </div>
+                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1fWR2mu32jWsgV5VbOPd6DR8UI5bBgxCAz0uJ4xXdaes/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="external-btn btn-sheet-link">
+                        Buka Spreadsheet ↗
+                    </a>
+                </div>
+
+                <div class="iframe-wrapper">
+                    <iframe 
+                        class="iframe-sheet"
+                        src="https://docs.google.com/spreadsheets/d/1fWR2mu32jWsgV5VbOPd6DR8UI5bBgxCAz0uJ4xXdaes/preview"
+                        loading="lazy">
+                        Memuat spreadsheet...
+                    </iframe>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            Crafted with ✨ by Andhara Dila Manggala Putri
+        </footer>
+    </div>
+
+    <script>
+        function filterSection(type, btn) {
+            const lookerCard = document.getElementById('section-looker');
+            const formCard = document.getElementById('section-form');
+            const sheetCard = document.getElementById('section-sheet');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            lookerCard.classList.add('hidden');
+            formCard.classList.add('hidden');
+            sheetCard.classList.add('hidden');
+
+            if (type === 'all') {
+                lookerCard.classList.remove('hidden');
+                formCard.classList.remove('hidden');
+                sheetCard.classList.remove('hidden');
+            } else if (type === 'looker') {
+                lookerCard.classList.remove('hidden');
+            } else if (type === 'form') {
+                formCard.classList.remove('hidden');
+            } else if (type === 'sheet') {
+                sheetCard.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
