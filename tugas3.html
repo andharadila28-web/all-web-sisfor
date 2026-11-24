@@ -56,33 +56,27 @@
       border: 1px solid var(--glass-border);
       box-shadow: 0 10px 30px rgba(43, 35, 56, 0.08);
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 8px 10px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
       justify-content: center;
     }
 
     .navbar a {
       text-decoration: none;
-      color: var(--text-muted);
       font-size: 0.88rem;
-      font-weight: 600;
-      padding: 8px 16px;
+      font-weight: 700;
+      padding: 8px 20px;
       border-radius: 999px;
-      transition: all 0.25s ease;
-    }
-
-    .navbar a:hover {
-      color: var(--pink-primary);
-      background: rgba(255, 93, 158, 0.08);
-    }
-
-    .navbar a.active {
       background: linear-gradient(135deg, var(--pink-primary), #ff85a1);
       color: #ffffff;
       box-shadow: 0 6px 16px rgba(255, 93, 158, 0.32);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .navbar a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 93, 158, 0.42);
     }
 
     /* Container */
@@ -324,35 +318,6 @@
       text-align: center;
     }
 
-    /* Footer Navigation */
-    .bottom-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 28px;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav-btn {
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid var(--glass-border);
-      color: var(--text-dark);
-      font-weight: 700;
-      font-size: 0.88rem;
-      padding: 12px 22px;
-      border-radius: 999px;
-      box-shadow: 0 6px 18px rgba(43, 35, 56, 0.06);
-      transition: all 0.2s ease;
-    }
-
-    .nav-btn:hover {
-      background: #ffffff;
-      color: var(--pink-primary);
-      transform: translateY(-2px);
-    }
-
     @media (max-width: 768px) {
       .hero-card {
         padding: 24px;
@@ -371,11 +336,7 @@
   <!-- Floating Navbar -->
   <div class="navbar-wrap">
     <nav class="navbar">
-      <a href="index.html">Beranda</a>
-      <a href="tugas1.html">Tugas 01</a>
-      <a href="tugas2.html">Tugas 02</a>
-      <a href="tugas3.html" class="active">Tugas 03</a>
-      <a href="tugas4.html">Tugas 04</a>
+      <a href="index.html">← Kembali ke Beranda</a>
     </nav>
   </div>
 
@@ -474,12 +435,6 @@
         Gunakan kontrol navigasi di bagian bawah dashboard untuk berpindah antara <strong>Halaman 1</strong> dan <strong>Halaman 2</strong>.
       </p>
     </section>
-
-    <!-- Navigasi Bawah -->
-    <div class="bottom-nav">
-      <a href="tugas2.html" class="nav-btn">← Tugas 02</a>
-      <a href="tugas4.html" class="nav-btn">Tugas 04 →</a>
-    </div>
   </main>
 
 </body>
